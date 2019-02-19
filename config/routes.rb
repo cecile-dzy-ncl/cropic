@@ -1,6 +1,6 @@
 Rails.application.routes.draw do
   devise_for :users
-  root to: 'sentences#index'
+  root to: 'pictures#index'
 
   resources :sentences do
     resources :pictures do
