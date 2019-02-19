@@ -5,10 +5,10 @@
 #
 #   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
 #   Character.create(name: 'Luke', movie: movies.first)
-puts 'Cleaning database of pictures...'
-Picture.destroy_all
 puts 'Cleaning database of words...'
 Word.destroy_all
+puts 'Cleaning database of pictures...'
+Picture.destroy_all
 puts 'Cleaning database of sentences...'
 Sentence.destroy_all
 puts 'Cleaning database of users...'
@@ -53,6 +53,7 @@ pic_1 = Picture.new(x: 0,
   width: 1280,
   height: 720,
   sentence_id: second_sentence.id)
+pic_1.remote_photo_url = "https://res.cloudinary.com/cecile-dzy-ncl/image/upload/v1550581719/Cropic/MONOPRIX__NOUVELLE_CARTE_01.jpg"
 pic_1.save!
 
 # Word seed
@@ -63,6 +64,7 @@ word_1 = Word.new(x: 0,
   width: 1280,
   height: 720,
   picture_id: pic_1.id)
+word_1.remote_photo_url = pic_1.remote_photo_url
 word_1.save!
 
 puts "... Seeding finished"
